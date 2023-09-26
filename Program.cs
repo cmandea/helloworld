@@ -9,7 +9,7 @@
             Console.WriteLine("Hello," + name + '!');
             Console.WriteLine("Varsta:");
                 int age =Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine(name + "in varsta de" + ''  age);
+            Console.WriteLine(name + "in varsta de" + " " + age);
 
                 
         }
