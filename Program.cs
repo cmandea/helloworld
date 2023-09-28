@@ -1,17 +1,42 @@
-﻿namespace HelloWorld
+﻿using System.Xml.Linq;
+
+namespace HelloWorld
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.Write("Numele:" );
+            Console.Write("Please enter your name:");
             string name = Console.ReadLine();
-            Console.WriteLine("Hello," + name + '!');
-            Console.WriteLine("Varsta:");
-                int age =Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine(name + "in varsta de" + " " + age);
 
-                
+            int age = ReadNumberFromKeyboard("Please enter your age:");
+            Console.WriteLine("Hello, " + name + ", your age is: " + age);
+
+
+            int currentYear = ReadNumberFromKeyboard("Please enter current year:");
+            Console.WriteLine("current year is : " + currentYear);
+        }
+
+        static int ReadNumberFromKeyboard(string label)
+        {
+            bool canConvert = false;
+            while (!canConvert)
+            {
+                Console.Write(label);
+                string textRead = Console.ReadLine();
+
+                canConvert = int.TryParse(textRead, out int result);
+                if (canConvert)
+                {
+                    return result;
+                }
+                else
+                {
+                    Console.WriteLine("The text '" + textRead + "' doesn't represent a number ");
+                }
+            }
+
+            return 0;
         }
     }
 }
